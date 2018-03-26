@@ -3,7 +3,8 @@
  */
 const axios=require('axios');
 const qs=require('qs');
-const Method=['post','put','patch'];
+const dataMethod=['post','put','patch'];
+const paramMethod=['get','delete'];
 module.exports=class _handler{
 
     static get instance(){
@@ -19,9 +20,9 @@ module.exports=class _handler{
             headers
         }
 
-        Method.includes(method.toLowerCase()) && (config.data=data)
+        dataMethod.includes(method.toLowerCase()) && (config.data=data)
 
-        method.toLowerCase()==='get' && (config.params=data);
+        paramMethod.includes(method.toLowerCase()) && (config.params=data);
 
         let content_type=headers['Content-Type'] && headers['Content-Type'].split(';')[0] || null;
         content_type==='application/x-www-form-urlencoded' && (config.transformRequest=[function (data) {
