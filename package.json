@@ -1,6 +1,6 @@
 {
   "name": "yue-http-util",
-  "version": "0.0.2",
+  "version": "1.0.1",
   "description": "http handler by axios",
   "main": "index.js",
   "scripts": {
